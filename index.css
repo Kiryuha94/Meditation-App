@@ -6,8 +6,7 @@
 }
 
 body {
-  background-image: url(./icon/Italy_Mountains_Lake_Dolomites_Alps_Crag_598703_1280x853.jpg);
-  background-position: center;
+  background: url(./icon/Italy_Mountains_Lake_Dolomites_Alps_Crag_598703_1280x853.jpg) center;
   background-size: cover;
   display: flex;
   justify-content: space-between;
@@ -24,7 +23,7 @@ body {
 
 .time {
   border-radius: 1rem;
-  background: cadetblue;
+  background: rgb(92, 154, 156);
   height: 3rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -45,7 +44,7 @@ body {
 h1 {
   margin-top: 4rem;
   font-size: 4rem;
-  color: bisque;
+  color: rgb(255, 228, 196);
 }
 
 .track-outline {
@@ -110,8 +109,7 @@ h1 {
 }
 
 #mountain {
-  background-image: url(./icon/icons8-mountain.png);
-  background-position: center;
+  background: url(./icon/icons8-mountain.png) center;
   background-size: contain;
   width: 4rem;
   height: 4rem;
@@ -120,8 +118,7 @@ h1 {
 }
 
 #sea {
-  background-image: url(./icon/icons8-wave-lines-100.png);
-  background-position: center;
+  background: url(./icon/icons8-wave-lines-100.png) center;
   background-size: contain;
   width: 4rem;
   height: 4rem;

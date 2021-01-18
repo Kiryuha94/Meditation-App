@@ -7,13 +7,14 @@ const selectTime = document.querySelectorAll('.select-time button'),
   video = document.getElementById('video'),
   outline = document.querySelector('.moving-outline circle'),
   title = document.getElementById('title'),
-  svg = document.getElementById('svg'),
+  svgElement = document.getElementById('svg-element'),
+  SECONDS = 60,
   MEDIA_SRC = {
-  sea: './video/Sea.mp4',
-  mountain: './video/Trail.mp4',
-  seaSound: '././audio/sea.mp3',
-  mountainSound: '././audio/glade-wind-birds-trees.mp3',
-}
+    sea: './video/Sea.mp4',
+    mountain: './video/Trail.mp4',
+    seaSound: './audio/sea.mp3',
+    mountainSound: './audio/glade-wind-birds-trees.mp3',
+  }
 
 let duration,
   isActivePlayer = false,
@@ -23,7 +24,7 @@ outline.style.strokeDashoffset = outlineLength
 outline.style.strokeDasharray = outlineLength
 const addZero = (n) => (n < 10 ? `0${n}` : n)
 const getFormattedTimeFromDuration = (duration) => {
-  return `${addZero(duration / 60)}:${addZero(duration % 60)}`
+  return `${addZero(duration / SECONDS)}:${addZero(duration % SECONDS)}`
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,26 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  mountain.addEventListener('click', () => {
-    svg.classList.remove('hidden')
+const playMedia = () => {
+  duration = 0
+  svgElement.classList.remove('hidden')
     time.classList.remove('hidden')
     statePlayer.classList.remove('hidden')
     title.classList.add('hidden')
-    video.setAttribute('src', MEDIA_SRC.mountain)
-    sound.setAttribute('src', MEDIA_SRC.mountainSound)
     statePlayer.classList.remove('pause')
     statePlayer.classList.add('play')
+  }
+  
+  mountain.addEventListener('click', () => {
+    video.setAttribute('src', MEDIA_SRC.mountain)
+    sound.setAttribute('src', MEDIA_SRC.mountainSound)
+    playMedia()
   })
 
   sea.addEventListener('click', () => {
-    svg.classList.remove('hidden')
-    time.classList.remove('hidden')
-    statePlayer.classList.remove('hidden')
-    title.classList.add('hidden')
     video.setAttribute('src', MEDIA_SRC.sea)
     sound.setAttribute('src', MEDIA_SRC.seaSound)
-    statePlayer.classList.remove('pause')
-    statePlayer.classList.add('play')
+    playMedia()
   })
 
   statePlayer.addEventListener('click', () => {
@@ -77,14 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isActivePlayer) return
     const soundCurrTime = sound.currentTime
     const timeLeft = duration - soundCurrTime
-    const minutes = Math.floor(timeLeft / 60)
-    const seconds = Math.floor(timeLeft % 60)
+    const minutes = Math.floor(timeLeft / SECONDS)
+    const seconds = Math.floor(timeLeft % SECONDS)
     time.innerText = `${addZero(minutes)}:${addZero(seconds)}`
     let namedLength = outlineLength - (soundCurrTime / duration) * outlineLength
     outline.style.strokeDashoffset = namedLength
 
     if (timeLeft < 1) {
-      time.innerText = '00:00'
+      time.innerText = 'Please, choose time!'
       video.pause()
       sound.pause()
       statePlayer.classList.remove('pause')
