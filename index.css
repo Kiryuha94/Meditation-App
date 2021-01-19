@@ -6,8 +6,7 @@
 }
 
 body {
-  background: url(./icon/Italy_Mountains_Lake_Dolomites_Alps_Crag_598703_1280x853.jpg) center;
-  background-size: cover;
+  background: url(./icon/Italy_Mountains_Lake_Dolomites_Alps_Crag_598703_1280x853.jpg) center/cover;
   display: flex;
   justify-content: space-between;
   height: 100vh;
@@ -109,8 +108,7 @@ h1 {
 }
 
 #mountain {
-  background: url(./icon/icons8-mountain.png) center;
-  background-size: contain;
+  background: url(./icon/icons8-mountain.png) center/cover;
   width: 4rem;
   height: 4rem;
   border-radius: 30%;
@@ -118,8 +116,7 @@ h1 {
 }
 
 #sea {
-  background: url(./icon/icons8-wave-lines-100.png) center;
-  background-size: contain;
+  background: url(./icon/icons8-wave-lines-100.png) center/cover;
   width: 4rem;
   height: 4rem;
   border-radius: 30%;

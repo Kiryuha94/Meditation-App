@@ -8,7 +8,7 @@ const selectTime = document.querySelectorAll('.select-time button'),
   outline = document.querySelector('.moving-outline circle'),
   title = document.getElementById('title'),
   svgElement = document.getElementById('svg-element'),
-  SECONDS = 60,
+  SECONDS_IN_MINUTE = 60,
   MEDIA_SRC = {
     sea: './video/Sea.mp4',
     mountain: './video/Trail.mp4',
@@ -24,7 +24,7 @@ outline.style.strokeDashoffset = outlineLength
 outline.style.strokeDasharray = outlineLength
 const addZero = (n) => (n < 10 ? `0${n}` : n)
 const getFormattedTimeFromDuration = (duration) => {
-  return `${addZero(duration / SECONDS)}:${addZero(duration % SECONDS)}`
+  return `${addZero(duration / SECONDS_IN_MINUTE)}:${addZero(duration % SECONDS_IN_MINUTE)}`
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,8 +78,8 @@ const playMedia = () => {
     if (!isActivePlayer) return
     const soundCurrTime = sound.currentTime
     const timeLeft = duration - soundCurrTime
-    const minutes = Math.floor(timeLeft / SECONDS)
-    const seconds = Math.floor(timeLeft % SECONDS)
+    const minutes = Math.floor(timeLeft / SECONDS_IN_MINUTE)
+    const seconds = Math.floor(timeLeft % SECONDS_IN_MINUTE)
     time.innerText = `${addZero(minutes)}:${addZero(seconds)}`
     let namedLength = outlineLength - (soundCurrTime / duration) * outlineLength
     outline.style.strokeDashoffset = namedLength
