@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="shortcut icon" href="./icon/yoga.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meditation App</title>
+  </head>
+  <body class="container">
+    <div class="select-time">
+      <button data-time="300" class="time">5 minutes</button>
+      <button data-time="600" class="time">10 minutes</button>
+      <button data-time="900" class="time">15 minutes</button>
+    </div>
+    <div class="player">
+      <audio loop id="sound"></audio>
+      <h1 id="title">Create your MOOD</h1>
+      <button id="state" class="play hidden"></button>
+      <div id="svg-element" class="hidden">
+        <svg class="track-outline" width="453" height="453" viewBox="0 0 453 453" fill="none">
+          <circle cx="226.5" cy="226.5" r="216.5" stroke="cyan" stroke-width="20" />
+        </svg>
+        <svg class="moving-outline" width="453" height="453" viewBox="0 0 453 453" fill="none">
+          <circle cx="226.5" cy="226.5" r="216.5" stroke="#018EBA" stroke-width="20" />
+        </svg>
+      </div>
+      <h2 id="time" class="hidden">Please, choose time!</h2>
+      <video loop id="video">
+        <source type="video/mp4" src="./"/>
+      </video>
+    </div>
+    <div class="select-music">
+      <button id="mountain"></button>
+      <button id="sea"></button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
